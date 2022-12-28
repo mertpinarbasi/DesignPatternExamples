@@ -1,4 +1,6 @@
-﻿using DesignPatternExamples.Observer;
+﻿using DesignPatternExamples.Decorator;
+using DesignPatternExamples.Decorator.Beverages;
+using DesignPatternExamples.Observer;
 using DesignPatternExamples.Strategy;
 using DesignPatternExamples.Strategy.CharacterTypes;
 using DesignPatternExamples.Strategy.WeaponBehaviors;
@@ -36,6 +38,12 @@ namespace DesignPatternExamples
             weatherData.SetMeasurements(80, 65, 82.2f);
 
             #endregion ObserverEnd
+
+            #region DecoratorStart
+            Beverage beverage = new HouseBlend();
+            beverage = new Mocha(beverage);
+            #endregion DecoratorEnd
+            Console.WriteLine(beverage.Cost());
 
         }
     }
